@@ -1,0 +1,18 @@
+# Node dependencies
+node_modules/
+
+# Build output
+dist/
+
+# VS Code directory
+.vscode/
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+
+# Misc
+.DS_Store
+Thumbs.db
+

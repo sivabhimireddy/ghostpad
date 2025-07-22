@@ -6,8 +6,13 @@
   "engines": {
     "vscode": "^1.88.0"
   },
-  "categories": ["Other"],
+  "categories": [
+    "Other"
+  ],
   "main": "./dist/extension.js",
+  "activationEvents": [
+    "onView:ghostpad.chatWebview"
+  ],
   "contributes": {
     "commands": [
       {
@@ -31,7 +36,7 @@
     "views": {
       "ghostpad": [
         {
-          "id": "ghostpad.chatView",
+          "id": "ghostpad.chatWebview",
           "name": "Ghostpad Chat"
         }
       ]
@@ -54,11 +59,17 @@
     }
   },
   "scripts": {
-    "compile": "tsc -p ./"
+    "compile": "tsc -p ./",
+    "test": "node ./dist/test/runTest.js"
   },
   "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.10",
     "@types/node": "^20.11.27",
     "@types/vscode": "^1.88.0",
-    "typescript": "^5.3.3"
+    "glob": "^11.0.3",
+    "mocha": "^11.7.1",
+    "typescript": "^5.3.3",
+    "vscode-test": "1.6.1"
   }
 }

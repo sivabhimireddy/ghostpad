@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import * as path from 'path';
 
 export class GhostpadSidebarProvider implements vscode.WebviewViewProvider {
-  public static readonly viewType = 'ghostpad.chatView';
+  public static readonly viewType = 'ghostpad.chatWebview';
 
   private _view?: vscode.WebviewView;
 

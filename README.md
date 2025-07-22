@@ -37,3 +37,14 @@ Source code lives in `src/` and static assets in `media/`.
 ## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## Running Tests
+
+1. Install dependencies:
+   ```sh
+   npm install
+   ```
+2. Run the tests:
+   ```sh
+   npm test
+   ```

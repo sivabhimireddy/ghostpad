@@ -5,7 +5,7 @@ import { OpenRouterClient, ChatMessage } from './llm/openRouterClient';
 export function activate(context: vscode.ExtensionContext) {
   const sidebarProvider = new GhostpadSidebarProvider(context);
   context.subscriptions.push(
-    vscode.window.registerWebviewViewProvider(GhostpadSidebarProvider.viewType, sidebarProvider)
+    vscode.window.registerWebviewViewProvider('ghostpad.chatWebview', sidebarProvider)
   );
 
   context.subscriptions.push(

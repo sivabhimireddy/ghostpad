@@ -21,6 +21,13 @@ npm run compile
 
 3. Press `F5` to launch a new Extension Development Host window.
 
+## How to Run
+
+1. Open this folder in VS Code.
+2. Follow the Setup steps above if you haven't already.
+3. Press `F5` (or choose **Run > Start Debugging**) to launch a new Extension Development Host.
+4. Use the command palette to try the Ink commands in the development window.
+
 ## Development
 
 The extension is written in TypeScript. The sidebar UI uses React and Tailwind CSS served via CDN so no additional build step is needed for styling.

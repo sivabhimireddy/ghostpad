@@ -6,6 +6,7 @@ dist/
 
 # VS Code directory
 .vscode/
+.vscode-test/
 
 # Logs and temp files
 *.log

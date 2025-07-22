@@ -1,0 +1,69 @@
+{
+  "name": "ink",
+  "displayName": "Ink",
+  "description": "LLM-powered code assistant for VS Code",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.88.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onCommand:ink.explainSelectedCode",
+    "onCommand:ink.editWithInstruction",
+    "onView:ink.chatView"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ink.explainSelectedCode",
+        "title": "Ink: Explain Selected Code"
+      },
+      {
+        "command": "ink.editWithInstruction",
+        "title": "Ink: Edit with Instruction"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ink",
+          "title": "Ink",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "ink": [
+        {
+          "id": "ink.chatView",
+          "name": "Ink Chat"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "Ink Configuration",
+      "properties": {
+        "ink.openRouterKey": {
+          "type": "string",
+          "default": "",
+          "description": "OpenRouter API key"
+        },
+        "ink.model": {
+          "type": "string",
+          "default": "anthropic/claude-3-sonnet",
+          "description": "LLM model id to use"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.27",
+    "@types/vscode": "^1.88.0",
+    "typescript": "^5.3.3"
+  }
+}

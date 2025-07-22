@@ -11,7 +11,15 @@ async function main() {
     // Passed to --extensionTestsPath
     const extensionTestsPath = path.resolve(__dirname, './suite/index');
 
-    await runTests({ extensionDevelopmentPath, extensionTestsPath });
+    await runTests({
+      extensionDevelopmentPath,
+      extensionTestsPath,
+      launchArgs: [
+        '--disable-extensions',
+        '--user-data-dir=' + path.resolve(__dirname, '../../.vscode-test-user'),
+        '--disable-workspace-trust'
+      ]
+    });
   } catch (err) {
     console.error('Failed to run tests');
     process.exit(1);

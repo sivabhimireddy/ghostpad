@@ -7,14 +7,16 @@ export class OpenRouterClient {
   constructor(private apiKey: string, private model: string) {}
 
   async chat(messages: ChatMessage[]): Promise<string> {
+    const headers = {
+      'Authorization': `Bearer ${this.apiKey}`,
+      'Content-Type': 'application/json',
+      'HTTP-Referer': 'https://github.com/yourrepo/ghostpad',
+      'X-Title': 'Ghostpad Extension'
+    };
+
     const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${this.apiKey}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://github.com/yourrepo/ink',
-        'X-Title': 'Ink Extension'
-      },
+      headers: headers,
       body: JSON.stringify({ model: this.model, messages })
     });
 

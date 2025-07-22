@@ -1,8 +1,10 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 
-export class InkSidebarProvider implements vscode.WebviewViewProvider {
-  public static readonly viewType = 'ink.chatView';
+export class GhostpadSidebarProvider implements vscode.WebviewViewProvider {
+  public static readonly viewType = 'ghostpad.chatView';
+
+  private _view?: vscode.WebviewView;
 
   constructor(private readonly context: vscode.ExtensionContext) {}
 
@@ -39,7 +41,7 @@ export class InkSidebarProvider implements vscode.WebviewViewProvider {
 <script nonce="${nonce}" src="${tailwind}"></script>
 <script nonce="${nonce}" src="${react}"></script>
 <script nonce="${nonce}" src="${reactDom}"></script>
-<title>Ink</title>
+<title>Ghostpad</title>
 </head>
 <body class="p-2">
 <div id="root"></div>

@@ -1,26 +1,26 @@
 import * as vscode from 'vscode';
-import { InkSidebarProvider } from './webview/inkSidebarProvider';
+import { GhostpadSidebarProvider } from './webview/ghostpadSidebarProvider';
 import { OpenRouterClient, ChatMessage } from './llm/openRouterClient';
 
 export function activate(context: vscode.ExtensionContext) {
-  const sidebarProvider = new InkSidebarProvider(context);
+  const sidebarProvider = new GhostpadSidebarProvider(context);
   context.subscriptions.push(
-    vscode.window.registerWebviewViewProvider(InkSidebarProvider.viewType, sidebarProvider)
+    vscode.window.registerWebviewViewProvider(GhostpadSidebarProvider.viewType, sidebarProvider)
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('ink.explainSelectedCode', explainSelectedCode)
+    vscode.commands.registerCommand('ghostpad.explainSelectedCode', explainSelectedCode)
   );
 
   context.subscriptions.push(
-    vscode.commands.registerCommand('ink.editWithInstruction', editWithInstruction)
+    vscode.commands.registerCommand('ghostpad.editWithInstruction', editWithInstruction)
   );
 }
 
 export function deactivate() {}
 
 async function explainSelectedCode() {
-  const key = getKey();
+  const key = getOpenRouterKey();
   if (!key) {
     vscode.window.showErrorMessage('Set your OpenRouter API key in settings.');
     return;
@@ -47,7 +47,7 @@ async function explainSelectedCode() {
 }
 
 async function editWithInstruction() {
-  const key = getKey();
+  const key = getOpenRouterKey();
   if (!key) {
     vscode.window.showErrorMessage('Set your OpenRouter API key in settings.');
     return;
@@ -78,10 +78,10 @@ async function editWithInstruction() {
   editor.edit(builder => builder.replace(selection, edited));
 }
 
-function getKey(): string {
-  return vscode.workspace.getConfiguration().get<string>('ink.openRouterKey') || '';
+function getOpenRouterKey(): string {
+  return vscode.workspace.getConfiguration().get<string>('ghostpad.openRouterKey') || '';
 }
 
 function getModel(): string {
-  return vscode.workspace.getConfiguration().get<string>('ink.model') || 'anthropic/claude-3-sonnet';
+  return vscode.workspace.getConfiguration().get<string>('ghostpad.model') || 'anthropic/claude-3-sonnet';
 }

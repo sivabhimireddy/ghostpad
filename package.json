@@ -1,56 +1,51 @@
 {
-  "name": "ink",
-  "displayName": "Ink",
+  "name": "ghostpad",
+  "displayName": "Ghostpad",
   "description": "LLM-powered code assistant for VS Code",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.88.0"
   },
   "categories": ["Other"],
-  "activationEvents": [
-    "onCommand:ink.explainSelectedCode",
-    "onCommand:ink.editWithInstruction",
-    "onView:ink.chatView"
-  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "ink.explainSelectedCode",
-        "title": "Ink: Explain Selected Code"
+        "command": "ghostpad.explainSelectedCode",
+        "title": "Ghostpad: Explain Selected Code"
       },
       {
-        "command": "ink.editWithInstruction",
-        "title": "Ink: Edit with Instruction"
+        "command": "ghostpad.editWithInstruction",
+        "title": "Ghostpad: Edit with Instruction"
       }
     ],
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "ink",
-          "title": "Ink",
+          "id": "ghostpad",
+          "title": "Ghostpad",
           "icon": "media/icon.svg"
         }
       ]
     },
     "views": {
-      "ink": [
+      "ghostpad": [
         {
-          "id": "ink.chatView",
-          "name": "Ink Chat"
+          "id": "ghostpad.chatView",
+          "name": "Ghostpad Chat"
         }
       ]
     },
     "configuration": {
       "type": "object",
-      "title": "Ink Configuration",
+      "title": "Ghostpad Configuration",
       "properties": {
-        "ink.openRouterKey": {
+        "ghostpad.openRouterKey": {
           "type": "string",
           "default": "",
           "description": "OpenRouter API key"
         },
-        "ink.model": {
+        "ghostpad.model": {
           "type": "string",
           "default": "anthropic/claude-3-sonnet",
           "description": "LLM model id to use"

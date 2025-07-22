@@ -75,7 +75,7 @@ async function editWithInstruction() {
     title: 'Editing with instruction...'
   }, () => client.chat(messages));
 
-  editor.edit(builder => builder.replace(selection, edited));
+  editor.edit((builder: vscode.TextEditorEdit) => builder.replace(selection, edited));
 }
 
 function getKey(): string {
